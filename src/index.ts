@@ -7,7 +7,7 @@ import { LinkedList } from "./LinkedList";
 const numbers = process.env.NUMBERS_COLLECTION;
 if (numbers) {
     console.log('NumbersCollection before sorting => ', numbers);
-    const numbersArray = numbers.trim().slice(1, -1).split(',').map((number: string): number => Number(number));
+    const numbersArray: number[] = JSON.parse(numbers);
     const numbersCollection = new NumbersCollection(numbersArray);
     numbersCollection.sort();
     console.log('NumbersCollection after sorting => ', numbersCollection.data);
@@ -26,7 +26,7 @@ if (characters) {
 const list = process.env.LINKED_LIST;
 if (list) {
     const linkedList = new LinkedList();
-    const listArray = list.trim().slice(1, -1).split(',').map((number: string): number => Number(number));
+    const listArray: number[] = JSON.parse(list);
     listArray.forEach(number => linkedList.add(number));
 
     console.log('LinkedList before sorting:');
